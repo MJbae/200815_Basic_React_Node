@@ -1,6 +1,13 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const bodyParser = require("body-parser");
+const { User } = require("./models/User");
+
+// application/x-www-form-urlencoded 형태의 data를 parser
+app.use(bodyParser.urlencoded({ extended: true }));
+// application/json 형태 데이터 parser
+app.use(bodyParser.json());
 
 // mongoose 활용 mongo db 연결
 const mongoose = require("mongoose");
@@ -22,6 +29,22 @@ mongoose
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
+});
+
+app.post("/register", (req, res) => {
+  // 회원가입 시 필요정보를 client에서 가져오면, 데이터베이스에 저장
+
+  // req.body 내부에는 json 형식으로 id, password 등의 회원가입 정보가 저장되어 있음
+  // bodyParser의 도움으로 json 형식으로 저장됨
+  const user = new User(req.body);
+
+  user.save((err, userInfo) => {
+    if (err) return res.json({ success: false, err });
+    // status(200): 정상
+    return res.status(200).json({
+      success: true,
+    });
+  });
 });
 
 app.listen(port, () => {
