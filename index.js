@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+// mongoDB key 값 불러올 경로 설정
+const config = require("./config/key");
 const bodyParser = require("body-parser");
 const { User } = require("./models/User");
 
@@ -13,15 +15,12 @@ app.use(bodyParser.json());
 const mongoose = require("mongoose");
 // 에러방지 목적으로 connect의 두번째 인자로 객체 전달
 mongoose
-  .connect(
-    "mongodb+srv://manjin:abcd1234@boilerplate.dq0kk.mongodb.net/<dbname>?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(config.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
   // 정상 연결시 아래와 같은 log 발생
   .then(() => console.log("MongoDB Connected..."))
   // 비정상 연결 시 erro 발생
