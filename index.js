@@ -28,14 +28,13 @@ mongoose
   .catch((err) => console.log);
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World!!!");
 });
 
+// 회원가입 시 필요정보를 client에서 받아오면, 데이터베이스에 저장
 app.post("/register", (req, res) => {
-  // 회원가입 시 필요정보를 client에서 가져오면, 데이터베이스에 저장
-
-  // req.body 내부에는 json 형식으로 id, password 등의 회원가입 정보가 저장되어 있음
-  // bodyParser의 도움으로 json 형식으로 저장됨
+  // req.body 내부에는 json 형식으로 id, password 등의 회원가입 정보가 저장됨
+  // -> bodyParser의 도움으로 json 형식으로 저장됨
   const user = new User(req.body);
 
   user.save((err, userInfo) => {
