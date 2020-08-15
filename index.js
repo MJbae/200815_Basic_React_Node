@@ -36,6 +36,7 @@ app.post("/register", (req, res) => {
   // -> bodyParser의 도움으로 json 형식으로 저장됨
   const user = new User(req.body);
 
+  console.log(req.body);
   user.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
     // status(200): 정상
