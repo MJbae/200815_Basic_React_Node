@@ -4,12 +4,14 @@ const port = 3000;
 // mongoDB key 값 불러올 경로 설정
 const config = require("./config/key");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const { User } = require("./models/User");
 
 // application/x-www-form-urlencoded 형태의 data를 parser
 app.use(bodyParser.urlencoded({ extended: true }));
 // application/json 형태 데이터 parser
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 // mongoose 활용 mongo db 연결
 const mongoose = require("mongoose");
@@ -50,20 +52,28 @@ app.post("/login", (req, res) => {
     // 요청한 이메일 주소가 없다면
     if (!user) {
       return res.json({
-        loginSueccess: false,
+        loginSuccess: false,
         message: "해당하는 이메일이 없습니다.",
       });
     }
 
     // 2. 요청한 이메일이 DB 내 있다면, 비밀번호 일치여부 확인
-    user.comparePassword(req.body.password, (err, inMatch) => {
+    user.comparePassword(req.body.password, (err, isMatch) => {
       if (!isMatch)
         return res.json({
           loginSueccess: false,
           message: "비밀번호가 틀렸습니다.",
         });
       // 3. 비밀번호 일치 시 토큰 생성 TODO: 토큰의 데이터 유효성 검사는 ?
-      user.generateToken((err, user) => {});
+      user.generateToken((err, user) => {
+        if (err) return res.status(400).send(err);
+
+        // 쿠키에 token 저장
+        return res
+          .cookie("x_auth", user.token)
+          .status(200)
+          .json({ loginSuccess: true, userId: user._id });
+      });
     });
   });
 });
