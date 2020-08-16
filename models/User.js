@@ -42,7 +42,6 @@ const userSchema = mongoose.Schema({
 userSchema.pre("save", function (next) {
   // TODO: var 대체하자
   let user = this;
-
   // userSchema 내 여러 필드 중 password 필드가 변경될 때만 아래와 같이 비밀번호 암호화
   if (user.isModified("password")) {
     bcrypt.genSalt(saltRounds, function (err, salt) {
@@ -55,9 +54,13 @@ userSchema.pre("save", function (next) {
         next();
       });
     });
+  } else {
+    next();
   }
-  next();
 });
+
+// TODO: comparePassword 탐구(User.js <-> index.js)
+userSchema.methods.comparePassword = function (plainPassword, callback) {};
 
 // model: Schema를 감싸서 관리
 const User = mongoose.model("User", userSchema);
