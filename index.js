@@ -5,6 +5,7 @@ const port = 3000;
 const config = require("./config/key");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const { auth } = require("./middleware/auth");
 const { User } = require("./models/User");
 
 // application/x-www-form-urlencoded 형태의 data를 parser
@@ -33,7 +34,7 @@ app.get("/", (req, res) => {
 });
 
 // 회원가입 시 필요정보를 client에서 받아오면, 데이터베이스에 저장
-app.post("/register", (req, res) => {
+app.post("api/users/register", (req, res) => {
   // req.body 내부에는 json 형식으로 id, password 등의 회원가입 정보가 저장됨
   // -> bodyParser의 도움으로 json 형식으로 저장됨
   const user = new User(req.body);
@@ -46,7 +47,7 @@ app.post("/register", (req, res) => {
   });
 });
 
-app.post("/login", (req, res) => {
+app.post("api/users/login", (req, res) => {
   // 1. 요청된 이메일 주소를 DB에서 검색
   User.findOne({ email: req.body.email }, (err, user) => {
     // 요청한 이메일 주소가 없다면
@@ -75,6 +76,21 @@ app.post("/login", (req, res) => {
           .json({ loginSuccess: true, userId: user._id });
       });
     });
+  });
+});
+
+// auth(middleware)
+app.get("api/users/auth", auth, (req, res) => {
+  // auth에서 인증로직 통과 후 다음의 코드 실행
+  res.status(200).json({
+    _id: req.user._id,
+    isAdmin: req.user.role === 0 ? false : true,
+    isAuth: true,
+    email: req.user.email,
+    name: req.user.name,
+    lastname: req.user.lastname,
+    role: req.user.role,
+    image: req.user.image,
   });
 });
 
