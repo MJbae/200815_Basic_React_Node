@@ -1,5 +1,5 @@
 # 200815_Basic_React_Node
-> React, Node 등 웹풀스택 기술 학습용 Repository
+> 웹풀스택 기술 학습에 따른 Toy-Project 및 개념정리 저장소
 
 ## 개념정리(feat. Notion)
 * [React 정리](https://www.notion.so/React-e15a0bffc5f546eca7c878c09c69a442)
