@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const jwt = require("jsonwebtoken");
-
 // Schema: 테이블 각 속성을 정의함
 const userSchema = mongoose.Schema({
   name: {
@@ -37,7 +36,6 @@ const userSchema = mongoose.Schema({
     type: Number,
   },
 });
-
 // userSchema가 save 메소드 호출 전 아래와 같은 함수를 실행함
 // pre는 mongoDB에서 지원하는 기능
 userSchema.pre("save", function (next) {
@@ -48,7 +46,6 @@ userSchema.pre("save", function (next) {
     bcrypt.genSalt(saltRounds, function (err, salt) {
       // error 발생 시, next 실행(=save 함수로 이동)
       if (err) return next(err);
-
       bcrypt.hash(user.password, salt, function (err, hash) {
         if (err) return next(err);
         user.password = hash;
@@ -59,7 +56,6 @@ userSchema.pre("save", function (next) {
     next();
   }
 });
-
 // TODO: comparePassword, isMatch 탐구(User.js <-> index.js)
 userSchema.methods.comparePassword = function (plainPassword, callback) {
   // 사용자에 의해 입력된 비밀번호와 DB내 hashed 비밀번호간 비교
@@ -68,16 +64,13 @@ userSchema.methods.comparePassword = function (plainPassword, callback) {
     callback(null, isMatch);
   });
 };
-
 userSchema.methods.generateToken = function (callback) {
   var user = this;
-
   // jsonwebtoken 활용 token 생성
   // sign의 인자로 plain object로 만들기 위해 toHexString 붙임??
   let token = jwt.sign(user._id.toHexString(), "secretToken");
   // schema token 필드에 삽입
   user.token = token;
-
   user.save(function (err, user) {
     if (err) return callback(err);
     callback(null, user);
@@ -85,13 +78,13 @@ userSchema.methods.generateToken = function (callback) {
 };
 
 userSchema.statics.findByToken = function (token, callback) {
-  var user = this;
+  let user = this;
 
   // 토큰 decode
   jwt.verify(token, "secretToken", function (err, decoded) {
     // 유저 찾기(user._id 활용)
     // cookie token과 DB token 일치여부 확인
-    user.findOne({ "_id:": decoded, token: token }, function (err, user) {
+    user.findOne({ _id: decoded, token: token }, function (err, user) {
       if (err) return callback(err);
       callback(null, user);
     });

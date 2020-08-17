@@ -13,7 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // application/json 형태 데이터 parser
 app.use(bodyParser.json());
 app.use(cookieParser());
-
 // mongoose 활용 mongo db 연결
 const mongoose = require("mongoose");
 // 에러방지 목적으로 connect의 두번째 인자로 객체 전달
@@ -28,13 +27,12 @@ mongoose
   .then(() => console.log("MongoDB Connected..."))
   // 비정상 연결 시 erro 발생
   .catch((err) => console.log);
-
 app.get("/", (req, res) => {
   res.send("Hello World!!!");
 });
 
 // 회원가입 시 필요정보를 client에서 받아오면, 데이터베이스에 저장
-app.post("api/users/register", (req, res) => {
+app.post("/register", (req, res) => {
   // req.body 내부에는 json 형식으로 id, password 등의 회원가입 정보가 저장됨
   // -> bodyParser의 도움으로 json 형식으로 저장됨
   const user = new User(req.body);
@@ -46,8 +44,7 @@ app.post("api/users/register", (req, res) => {
     });
   });
 });
-
-app.post("api/users/login", (req, res) => {
+app.post("/login", (req, res) => {
   // 1. 요청된 이메일 주소를 DB에서 검색
   User.findOne({ email: req.body.email }, (err, user) => {
     // 요청한 이메일 주소가 없다면
@@ -57,7 +54,6 @@ app.post("api/users/login", (req, res) => {
         message: "해당하는 이메일이 없습니다.",
       });
     }
-
     // 2. 요청한 이메일이 DB 내 있다면, 비밀번호 일치여부 확인
     user.comparePassword(req.body.password, (err, isMatch) => {
       if (!isMatch)
@@ -68,7 +64,6 @@ app.post("api/users/login", (req, res) => {
       // 3. 비밀번호 일치 시 토큰 생성 TODO: 토큰의 데이터 유효성 검사는 ?
       user.generateToken((err, user) => {
         if (err) return res.status(400).send(err);
-
         // 쿠키에 token 저장
         return res
           .cookie("x_auth", user.token)
@@ -80,7 +75,7 @@ app.post("api/users/login", (req, res) => {
 });
 
 // auth(middleware)
-app.get("api/users/auth", auth, (req, res) => {
+app.get("/auth", auth, (req, res) => {
   // auth에서 인증로직 통과 후 다음의 코드 실행
   res.status(200).json({
     _id: req.user._id,
@@ -94,7 +89,7 @@ app.get("api/users/auth", auth, (req, res) => {
   });
 });
 
-app.get("/api/users/logout", auth, (req, res) => {
+app.get("/logout", auth, (req, res) => {
   User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).send({ success: true });

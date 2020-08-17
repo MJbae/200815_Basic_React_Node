@@ -7,6 +7,7 @@ let auth = (req, res, next) => {
 
   // 2. 토큰을 복호화하고 유저 찾기
   User.findByToken(token, (err, user) => {
+    console.log(user);
     // 3. DB 내 유저 있으면 인증 OK, 없으면 인증 NO
     if (err) throw err;
     if (!user) return res.json({ isAuth: false, error: true });
