@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 // 회원가입 시 필요정보를 client에서 받아오면, 데이터베이스에 저장
-app.post("/register", (req, res) => {
+app.post("/api/users/register", (req, res) => {
   // req.body 내부에는 json 형식으로 id, password 등의 회원가입 정보가 저장됨
   // -> bodyParser의 도움으로 json 형식으로 저장됨
   const user = new User(req.body);
@@ -44,7 +44,7 @@ app.post("/register", (req, res) => {
     });
   });
 });
-app.post("/login", (req, res) => {
+app.post("/api/users/login", (req, res) => {
   // 1. 요청된 이메일 주소를 DB에서 검색
   User.findOne({ email: req.body.email }, (err, user) => {
     // 요청한 이메일 주소가 없다면
@@ -75,7 +75,7 @@ app.post("/login", (req, res) => {
 });
 
 // auth(middleware)
-app.get("/auth", auth, (req, res) => {
+app.get("/api/users/auth", auth, (req, res) => {
   // auth에서 인증로직 통과 후 다음의 코드 실행
   res.status(200).json({
     _id: req.user._id,
@@ -89,7 +89,7 @@ app.get("/auth", auth, (req, res) => {
   });
 });
 
-app.get("/logout", auth, (req, res) => {
+app.get("/api/users/logout", auth, (req, res) => {
   User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).send({ success: true });
