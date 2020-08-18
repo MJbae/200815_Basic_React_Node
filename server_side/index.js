@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const port = 5000;
 // mongoDB key 값 불러올 경로 설정
 const config = require("./config/key");
 const bodyParser = require("body-parser");
@@ -27,8 +26,13 @@ mongoose
   .then(() => console.log("MongoDB Connected..."))
   // 비정상 연결 시 erro 발생
   .catch((err) => console.log);
+
 app.get("/", (req, res) => {
   res.send("Hello World!!!");
+});
+
+app.get("/api/hello", (req, res) => {
+  res.send("헬로 프록시");
 });
 
 // 회원가입 시 필요정보를 client에서 받아오면, 데이터베이스에 저장
@@ -99,6 +103,7 @@ app.get("/api/users/logout", auth, (req, res) => {
   });
 });
 
+const port = 5000;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
