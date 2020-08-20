@@ -7,13 +7,10 @@ export default function (state = {}, action) {
       // Redux 활용 step 4: action.payload에 할당된 request문이 실행됨에 따라 loginSuccess에 server response({loginSuccess, user._id})가 저장됨
       // 그리고 return 값이 store에 저장됨
       return { ...state, loginSuccess: action.payload };
-      break;
     case REGISTER_USER:
       return { ...state, register: action.payload };
-      break;
     case AUTH_USER:
-      return { ...state, register: action.payload };
-      break;
+      return { ...state, userData: action.payload };
     default:
       return state;
   }
