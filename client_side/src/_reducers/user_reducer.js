@@ -1,4 +1,4 @@
-import { LOGIN_USER, REGISTER_USER } from "../_actions/types";
+import { LOGIN_USER, REGISTER_USER, AUTH_USER } from "../_actions/types";
 
 // Redux 활용 step 3: reducer에서 action.type에 따라 특정 로직 처리 후 next state로 반환(login page 경로가 담긴 request)
 export default function (state = {}, action) {
@@ -9,6 +9,9 @@ export default function (state = {}, action) {
       return { ...state, loginSuccess: action.payload };
       break;
     case REGISTER_USER:
+      return { ...state, register: action.payload };
+      break;
+    case AUTH_USER:
       return { ...state, register: action.payload };
       break;
     default:
