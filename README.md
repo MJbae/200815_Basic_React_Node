@@ -5,6 +5,15 @@
 * [React 정리](https://www.notion.so/React-e15a0bffc5f546eca7c878c09c69a442)
 * [Node 정리](https://www.notion.so/Node-b0f88f7a7d3e44479c6c9f6f57c6b5a1)
 
+## 학습과정
+### 20. 8. 15.(토) ~ 8. 23.(일): React, Node 기본기 쌓기
+* 기본개념 정리(John Ahn 강의, MDN, 벨로퍼트 블로그 참고)
+* 로그인, 로그아웃, 회원가입, 인증 기능 구현(John Ahn 강의 내용 클론코딩)
+* 정리한 내용 바탕으로 위의 네 가지 기능 직접 구현(자체 코딩)
+### 20. 8. 24.(월) ~ 8. 30.(일): 무비앱 프로젝트
+* The Movie DB(외부 API) 활용하여 웹사이트 제작
+* Favorite, Detail page, Load More 기능 구현
+
 ## 개발환경
 * React, Redux
 * Node, Express
