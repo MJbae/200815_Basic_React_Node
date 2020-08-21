@@ -13,8 +13,14 @@
 ### 20. 8. 24.(월) ~ 8. 30.(일): 무비앱 프로젝트
 * The Movie DB(외부 API) 활용하여 웹사이트 제작
 * Favorite, Detail page, Load More 기능 구현
+### 20. 8. 31.(월) ~ 9. 6.(일): Docker와 CI 환경 학습 및 무비앱 배포
+* Docker와 더불어 AWS Cloud Services, Travis CI 등 배포환경 학습 
+* 무비앱 배포 실습
 
 ## 개발환경
 * React, Redux
 * Node, Express
 * MongoDB
+
+## 배포환경
+* Docker
