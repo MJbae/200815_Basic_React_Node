@@ -55,7 +55,7 @@ userSchema.pre("save", function (next) {
     next();
   }
 });
-// TODO: comparePassword, isMatch 탐구(User.js <-> index.js)
+
 userSchema.methods.comparePassword = function (plainPassword, callback) {
   // 사용자에 의해 입력된 비밀번호와 DB내 hashed 비밀번호간 비교
   bcrypt.compare(plainPassword, this.password, function (err, isMatch) {
