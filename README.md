@@ -1,5 +1,6 @@
 # 200815_Basic_React_Node(feat. John Ahn)
 > 웹풀스택 기본 학습에 따른 개념정리 및 토이프로젝트
+* [무비앱 바로가기](#)
 
 ## 개념정리
 * [React 정리](https://www.notion.so/React-e15a0bffc5f546eca7c878c09c69a442)
