@@ -1,5 +1,5 @@
 # 200815_Basic_React_Node(feat. John Ahn)
-> 웹풀스택 기본 학습에 따른 개념정리 및 토이프로젝트
+> 웹풀스택 기본 학습에 따른 개념정리 및 토이 프로젝트
 
 ## Movie App Project
 * [무비앱 바로가기](#)
