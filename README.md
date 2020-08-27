@@ -2,12 +2,13 @@
 > 웹풀스택 기본 학습에 따른 개념정리 및 토이 프로젝트
 
 ## Movie App Project
-* [무비앱 바로가기](#)
+* [무비앱 서비스 바로가기](#)
 * [무비앱 프로젝트 정리](https://www.notion.so/Movie-App-Project-a4ee1766d86f45888554e00969c1dcd3)
 
 ## 개념정리
 * [React 정리](https://www.notion.so/React-e15a0bffc5f546eca7c878c09c69a442)
 * [Node 정리](https://www.notion.so/Node-b0f88f7a7d3e44479c6c9f6f57c6b5a1)
+* [Docker 정리](#)
 
 ## 학습과정
 ### 20. 8. 15.(토) ~ 8. 23.(일): React, Node 기본기 쌓기
