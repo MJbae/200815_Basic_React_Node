@@ -16,7 +16,7 @@
 * 정리한 내용 바탕으로 위의 네 가지 기능 직접 구현(자체 코딩)
 ### 20. 8. 24.(월) ~ 8. 30.(일): 무비앱 프로젝트
 * The Movie DB(외부 API) 활용하여 웹서비스 개발
-* Favorite, Load More, Detail page 기능 구현
+* Favorite, Load More, Detail page 구현
 ### 20. 8. 31.(월) ~ 9. 6.(일): Docker와 CI 환경 학습 및 무비앱 배포
 * Docker와 더불어 AWS Cloud Services, Travis CI 등 배포환경 학습 
 * 무비앱 배포 실습
