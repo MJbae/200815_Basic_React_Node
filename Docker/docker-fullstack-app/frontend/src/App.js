@@ -4,11 +4,11 @@ import "./App.css";
 import axios from "axios";
 
 function App() {
-  useEffect(() => {
-    axios.get("/api/hi").then((response) => {
-      console.log("response", response);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("/api/hi").then((response) => {
+  //     console.log("response", response);
+  //   });
+  // }, []);
 
   useEffect(() => {
     //여기서 데이터베이스에 있는 값을 가져온다.
@@ -51,7 +51,7 @@ function App() {
           <form className="example" onSubmit={submitHandler}>
             <input
               type="text"
-              placeholder="입력해주세요..."
+              placeholder="입력해주세요"
               onChange={changeHandler}
               value={value}
             />

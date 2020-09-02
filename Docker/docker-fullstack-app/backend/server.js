@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
 const db = require("./db");
 
 const app = express();
@@ -41,5 +40,5 @@ app.post("/api/value", function (req, res, next) {
 });
 
 app.listen(5000, () => {
-  console.log("app start with 50000 port");
+  console.log("app start with 5000 port");
 });
