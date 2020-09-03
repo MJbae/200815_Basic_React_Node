@@ -1,0 +1,36 @@
+language: generic
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t gentlemj/react-fullstack-app -f ./frontend/Dockerfile.dev ./frontend
+
+script:
+  - docker run -e CI=true gentlemj/react-fullstack-app npm run test
+
+after_success:
+  - docker build -t gentlemj/docker-frontend ./frontend
+  - docker build -t gentlemj/docker-backend ./backend
+  - docker build -t gentlemj/docker-nginx ./nginx
+
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+
+  - docker push gentlemj/docker-frontend
+  - docker push gentlemj/docker-backend
+  - docker push gentlemj/docker-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-fullstack-app"
+  env: "DockerFullstackApp-env"
+  bucket_name: elasticbeanstalk-ap-northeast-2-297348835951
+  bucket_path: "docker-fullstack-app"
+  on:
+    branch: master
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
