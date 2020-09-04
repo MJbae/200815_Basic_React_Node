@@ -36,7 +36,7 @@ function App() {
     event.preventDefault();
 
     axios.get("/api/removeTodos").then((response) => {
-      setTodos([response.data]);
+      setTodos([]);
       setinputValue("");
     });
   };
