@@ -45,6 +45,14 @@ app.get("/api/printTodos", function (req, res) {
   });
 });
 
+// todos 모두 삭제
+app.get("/api/removeTodos", function (req, res) {
+  Todos.remove({}, function (err, result) {
+    if (err) return res.status(400).send(err);
+    res.status(200).send(result);
+  });
+});
+
 // 5000포트 사용하여 app 시작
 app.listen(5000, () => {
   console.log("app start at 5000 port");
