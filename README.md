@@ -4,7 +4,7 @@
 ## Movie App Project
 * [무비앱 서비스 바로가기](#)
 * [무비앱 프로젝트 정리](https://www.notion.so/Movie-App-Project-a4ee1766d86f45888554e00969c1dcd3)
-* [무비앱 Git repository 이동](https://github.com/MJbae/200823_MovieApp_React_Node)
+* [무비앱 Git repository](https://github.com/MJbae/200823_MovieApp_React_Node)
 ## 개념정리
 * [React 정리](https://www.notion.so/React-e15a0bffc5f546eca7c878c09c69a442)
 * [Node 정리](https://www.notion.so/Node-b0f88f7a7d3e44479c6c9f6f57c6b5a1)
