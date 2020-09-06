@@ -1,10 +1,14 @@
 # 200815_Basic_React_Node(feat. John Ahn)
 > 웹풀스택 기본 학습에 따른 개념정리 및 토이 프로젝트
 
+## Youtube App Project
+* [Youtube App 서비스 바로가기](#)
+* [프로젝트 정리](https://www.notion.so/Youtube-App-Project-9b91bb96162f4d58bc3adf3ded9d1038)
+* [Git repository](https://github.com/MJbae/200906_YoutubeApp_React_Node)
 ## Movie App Project
-* [무비앱 서비스 바로가기](#)
-* [무비앱 프로젝트 정리](https://www.notion.so/Movie-App-Project-a4ee1766d86f45888554e00969c1dcd3)
-* [무비앱 Git repository](https://github.com/MJbae/200823_MovieApp_React_Node)
+* [Movie App 서비스 바로가기](#)
+* [프로젝트 정리](https://www.notion.so/Movie-App-Project-a4ee1766d86f45888554e00969c1dcd3)
+* [Git repository](https://github.com/MJbae/200823_MovieApp_React_Node)
 ## 개념정리
 * [React 정리](https://www.notion.so/React-e15a0bffc5f546eca7c878c09c69a442)
 * [Node 정리](https://www.notion.so/Node-b0f88f7a7d3e44479c6c9f6f57c6b5a1)
@@ -15,12 +19,15 @@
 * 기본개념 정리(John Ahn 강의, MDN, 벨로퍼트 블로그 참고)
 * 로그인, 로그아웃, 회원가입, 인증 기능 구현(John Ahn 강의 내용 클론코딩)
 * 정리한 내용 바탕으로 위의 네 가지 기능 직접 구현(자체 코딩)
-### 20. 8. 24.(월) ~ 8. 30.(일): 무비앱 프로젝트
+### 20. 8. 24.(월) ~ 8. 30.(일): Movie App Project
 * The Movie DB(외부 API) 활용하여 웹서비스 개발
 * Favorite, Load More, Detail page 구현
 ### 20. 8. 31.(월) ~ 9. 6.(일): Docker와 CI 환경 학습 및 무비앱 배포
 * Docker와 더불어 AWS Cloud Services, Travis CI 등 배포환경 학습 
-* 무비앱 배포 실습
+* Movie App 배포
+### 20. 9. 7.(월) ~ 9. 13.(일): Youtube App Project
+* 비디오 업로드, 구독, 댓글, 좋아요 등 Youtube 핵심기능 구현
+* Youtube App 배포
 
 ## 개발환경
 * React, Redux
