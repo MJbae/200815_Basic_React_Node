@@ -1,0 +1,29 @@
+version: "3"
+services:
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    container_name: todolist_app_client
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    stdin_open: true
+
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    container_name: todolist_app_nginx
+    ports:
+      - "3000:80"
+
+  server:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    container_name: todolist_app_server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
