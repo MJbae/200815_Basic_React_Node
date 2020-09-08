@@ -35,4 +35,5 @@
 * MongoDB
 
 ## 배포환경
-* Docker
+* Docker, Travis CI
+* AWS services(EB, S3, IAM)
