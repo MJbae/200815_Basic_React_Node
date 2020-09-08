@@ -30,10 +30,9 @@
 * Youtube App 배포
 
 ## 개발환경
+### 기술스택
 * React, Redux
-* Node, Express
-* MongoDB
-
-## 배포환경
+* Node, MongoDB
+### 배포환경
 * Docker, Travis CI
 * AWS services(EB, S3, IAM)
