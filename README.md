@@ -13,9 +13,12 @@
 ### 20. 8. 15.(토) ~ 8. 23.(일): React, Node 기본기 쌓기
 * 기본개념 정리(John Ahn 강의, MDN, 벨로퍼트 블로그 참고)
 * 로그인, 로그아웃, 회원가입, 인증 기능 구현(John Ahn 강의 내용 클론코딩)
-* 정리한 내용 바탕으로 위의 네 가지 기능 직접 구현(자체 코딩)
-### 20. 8. 31.(월) ~ 9. 6.(일): Docker와 CI 환경 학습
+### 20. 8. 24.(월) ~ 8. 30.(일): Movie App Project
+* The Movie DB(외부 API) 활용하여 웹서비스 개발
+* Favorite, Load More, Detail page 구현
+### 20. 8. 31.(월) ~ 9. 6.(일): Docker와 CI 환경 학습 및 Movie App 배포
 * Docker와 더불어 AWS Cloud Services, Travis CI 등 배포 자동화 환경 학습 
+* Movie App 배포
 ### 20. 9. 7.(월) ~ 9. 13.(일): Youtube App Project
 * 비디오 업로드, 구독, 댓글, 좋아요 등 Youtube 핵심기능 구현
 
