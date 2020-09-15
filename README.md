@@ -1,14 +1,14 @@
 # 200815_Basic_React_Node(feat. John Ahn)
 > 웹풀스택 기본 학습에 따른 개념정리 및 클론 프로젝트
 
-### 개념정리
+## 개념정리
 * [React 정리](https://www.notion.so/React-e15a0bffc5f546eca7c878c09c69a442)
 * [Node 정리](https://www.notion.so/Node-b0f88f7a7d3e44479c6c9f6f57c6b5a1)
 * [Docker 정리](https://www.notion.so/Docker-8dfadb7217934442b92cf53500758dce)
-### Youtube App Project
+## Youtube App Project
 * [프로젝트 정리](https://www.notion.so/Youtube-App-Project-9b91bb96162f4d58bc3adf3ded9d1038)
 * [Git repository](https://github.com/MJbae/200906_YoutubeApp_React_Node)
-### Docker 활용 배포 실습
+## Docker 활용 배포 실습
 * [TodoList App](http://todolistapp-env.eba-mbszkcmy.ap-northeast-2.elasticbeanstalk.com/)
 
 ## 학습과정
