@@ -8,6 +8,8 @@
 ## Youtube App Project
 * [프로젝트 정리](https://www.notion.so/Youtube-App-Project-9b91bb96162f4d58bc3adf3ded9d1038)
 * [Git repository](https://github.com/MJbae/200906_YoutubeApp_React_Node)
+## Docker 활용 배포 실습
+* [TodoList App](http://todolistapp-env.eba-mbszkcmy.ap-northeast-2.elasticbeanstalk.com/)
 
 ## 학습과정
 ### 20. 8. 15.(토) ~ 8. 23.(일): React, Node 기본기 쌓기
